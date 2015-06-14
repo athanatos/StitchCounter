@@ -4,9 +4,16 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class SimpleCounter extends ActionBarActivity {
+    int currentCount;
+
+    public SimpleCounter() {
+        currentCount = 0;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,5 +42,11 @@ public class SimpleCounter extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void incrementCounter(View view) {
+        currentCount++;
+        TextView t = (TextView)findViewById(R.id.text_counter);
+        t.setText(Integer.toString(currentCount));
     }
 }
